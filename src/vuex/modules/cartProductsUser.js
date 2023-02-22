@@ -8,12 +8,15 @@ export default {
   mutations: {
     SET_CART: (state, product) => {
       if (state.cart.length) {
-        let isProductExists = false;
+        let isProductExists = false
         state.cart.map(function(item) {
           if (item.id === product.id) {
             isProductExists = true
+            if (!item.quantity) {
+              item.quantity = 1
+            }
             item.quantity++
-          }
+          } 
         })
         if (!isProductExists) {
           state.cart.push(product)

@@ -10,7 +10,7 @@
       <p class="cart-item__info_title">{{cart_item_data.title}}</p>
       <p class="cart-item__info_price">{{cart_item_data.price}}zł</p>
     </div>
-    <div class="cart-item__quantity"> Ilość {{cart_item_data.quantity}}</div>
+    <div class="cart-item__quantity"> Ilość {{cart_item_data.quantity || 1}}</div>
     <button
       class="cart-item__info_delete"
       @click="deleteFromCart"
@@ -39,11 +39,12 @@ export default {
     deleteFromCart() {
       this.$emit('deleteFromCart')
     }
-  },
-  mounted() {
-    const cartItemData = this.cart_item_data
-    cartItemData.quantity = 1
   }
+  // ,
+  // mounted() {
+  //   const cartItemData = this.cart_item_data
+  //   cartItemData.quantity = 1
+  // }
 }
 </script>
 
