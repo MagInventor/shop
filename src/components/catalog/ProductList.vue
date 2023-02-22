@@ -3,7 +3,7 @@
     <div class="container">
       <div class="list-default">
         <product-card
-          v-for="(product) in products"
+          v-for="(product) in PRODUCTS"
           :key="product.id"
           :product_data="product"
           @addToCart="addToCart"
@@ -15,64 +15,36 @@
 
 <script>
 import ProductCard from './ProductCard'
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
   name: 'ProductList',
   components: { ProductCard },
   data() {
     return {
-      searchText: '',
-      products: [
-        {
-          image: '1.jpg',
-          title: 'Ptaszarnia zwykła',
-          price: 100,
-          id: 'I1',
-          available: true
-        },
-        {
-          image: '2.jpg',
-          title: 'Ptaszarnia piękna',
-          price: 150,
-          id: 'I2',
-          available: true
-        },
-        {
-          image: '3.jpg',
-          title: 'Ptaszarnia ładna',
-          price: 200,
-          id: 'I3',
-          available: true
-        },
-        {
-          image: '4.jpg',
-          title: 'Ptaszarnia apartamenty',
-          price: 300,
-          id: 'I4',
-          available: true
-        },
-        {
-          image: '5.jpg',
-          title: 'Psiarnia piękna',
-          price: 170,
-          id: 'I5',
-          available: true
-        },
-        {
-          image: '6.jpg',
-          title: 'Psiarnia ładna',
-          price: 220,
-          id: 'I6',
-          available: true
-        }
-      ]
+      searchText: ''
     }
   },
-  computed: {},
+  computed: {
+    ...mapGetters([
+      'PRODUCTS'
+    ]),
+  },
   methods: {
+    ...mapActions([
+      'GET_PRODUCTS_FROM_API'
+    ]),
     addToCart(data) {
       console.log(data)
     }
+  },
+  mounted() {
+    this.GET_PRODUCTS_FROM_API()
+    .then((response) => {
+      if (response.data) {
+        console.log('Data arrived')
+      }
+    })
   }
 }
 </script>

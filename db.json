@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "image": "1.jpg",
+      "title": "Ptaszarnia zwykła",
+      "price": 100,
+      "id": "I1",
+      "available": true
+    },
+    {
+      "image": "2.jpg",
+      "title": "Ptaszarnia piękna",
+      "price": 150,
+      "id": "I2",
+      "available": true
+    },
+    {
+      "image": "3.jpg",
+      "title": "Ptaszarnia ładna",
+      "price": 200,
+      "id": "I3",
+      "available": true
+    },
+    {
+      "image": "4.jpg",
+      "title": "Ptaszarnia apartamenty",
+      "price": 300,
+      "id": "I4",
+      "available": true
+    },
+    {
+      "image": "5.jpg",
+      "title": "Psiarnia piękna",
+      "price": 170,
+      "id": "I5",
+      "available": true
+    },
+    {
+      "image": "6.jpg",
+      "title": "Psiarnia ładna",
+      "price": 220,
+      "id": "I6",
+      "available": true
+    }
+  ]
+}
