@@ -1,17 +1,28 @@
 <template>
   <div class="cart">
     <the-header/>
-    <h1>This is a cart page</h1>
+    <cart-products
+      :cart_data="CART"
+    />
   </div>
 </template>
 
 <script>
 import TheHeader from '@/components/header/TheHeader'
+import CartProducts from '@/components/cart/CartProducts'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'HomeView',
   components: {
-    TheHeader
+    TheHeader, CartProducts
+  },
+  props: {},
+  data() {},
+  computed: {
+    ...mapGetters([
+      'CART'
+    ])
   }
 }
 </script>
