@@ -8,21 +8,19 @@
     </div>
     <div class="cart-item__info">
       <p class="cart-item__info_title">{{cart_item_data.title}}</p>
-      <p class="cart-item__info_price">{{cart_item_data.price}}</p>
-      <p class="cart-item__info_id">{{cart_item_data.id}}</p>
+      <p class="cart-item__info_price">{{cart_item_data.price}}zł</p>
     </div>
-    <div class="cart-item__quantity"> Quantity {{cart_item_data.quantity}}</div>
+    <div class="cart-item__quantity"> Ilość {{cart_item_data.quantity}}</div>
     <button
       class="cart-item__info_delete"
       @click="deleteFromCart"
     >
-      Delete
+      Usuń
     </button>
   </div>
 </template>
 
 <script>
-  
 export default {
   name: 'CartItem',
   props: {
