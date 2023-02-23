@@ -30,7 +30,8 @@ const routes = [
   {
     path: '/like',
     name: 'like',
-    component: () => import('../views/LikeView.vue')
+    component: () => import('../views/LikeView.vue'),
+    props: true
   },
   {
     path: '/cart',

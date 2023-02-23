@@ -1,8 +1,14 @@
 <template>
   <div class="product-card">
     <div class="img-card">
-      <img 
-        :src=" require('../../assets/catalog/' + product_data.image) " alt="img" >
+      <img :src=" require('../../assets/catalog/' + product_data.image) " alt="img" >
+      <span
+        class="img-card__like"
+        @click="addToLike"
+      >
+        <img :src=" require('../../assets/icons/like.png')" class="img-card__like_transparent like-active">
+        <img :src=" require('../../assets/icons/likered.png')" class="img-card__like_choosed">
+      </span>
     </div>
     <div class="product-card__info">
       <p class="product-card__info_title">{{ product_data.title }}</p>
@@ -31,6 +37,9 @@ export default {
   },
   computed: {},
   methods: {
+    addToLike() {
+      this.$emit('addToLike', this.product_data)
+    },
     addToCart() {
       this.$emit('addToCart', this.product_data)
     }
@@ -51,11 +60,30 @@ export default {
 .img-card {
   width: 100%;
   height: auto;
+  position: relative;
 }
 
 .img-card img {
   width: 230px;
   height: auto;
+}
+
+.img-card__like img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.img-card__like_transparent,
+.img-card__like_choosed {
+  display: none;
+}
+
+.like-active {
+  display: block;
 }
 
 .product-card__info_title {

@@ -1,17 +1,28 @@
 <template>
   <div class="like">
     <the-header/>
-    <h1>This is a like page</h1>
+    <like-products
+      :like_data="LIKE"
+    />
   </div>
 </template>
 
 <script>
 import TheHeader from '@/components/header/TheHeader'
+import LikeProducts from '@/components/like/LikeProducts'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'HomeView',
   components: {
-    TheHeader
+    TheHeader, LikeProducts
+  },
+  props: {},
+  data() {},
+  computed: {
+    ...mapGetters([
+      'LIKE'
+    ])
   }
 }
 </script>

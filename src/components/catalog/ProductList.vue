@@ -7,6 +7,7 @@
           :key="product.id"
           :product_data="product"
           @addToCart="addToCart"
+          @addToLike="addToLike"
         />
       </div>
     </div>
@@ -32,8 +33,12 @@ export default {
   methods: {
     ...mapActions([
       'GET_PRODUCTS_FROM_API',
-      'ADD_TO_CART'
+      'ADD_TO_LIKE',
+      'ADD_TO_CART',
     ]),
+    addToLike(data) {
+      this.ADD_TO_LIKE(data)
+    },
     addToCart(data) {
       this.ADD_TO_CART(data)
     }
