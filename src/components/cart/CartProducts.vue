@@ -1,14 +1,14 @@
 <template>
-  <div 
-    class="cart-products" 
-  >
-    <h1>Koszyk</h1>
-    <cart-item
-      v-for="(item, index) in cart_data"
-      :key = "item.id"
-      :cart_item_data="item"
-      @deleteFromCart="deleteFromCart(index)"
-    />
+  <div class="cart-products">
+    <div class="container">
+      <h1>Koszyk</h1>
+      <cart-item
+        v-for="(item, index) in cart_data"
+        :key = "item.id"
+        :cart_item_data="item"
+        @deleteFromCart="deleteFromCart(index)"
+      />
+    </div>
   </div>
 </template>
 
@@ -47,3 +47,7 @@ export default {
   }
 }
 </script>
+
+<style>
+  
+</style>

@@ -1,14 +1,16 @@
 <template>
-  <div class="cart-item">
-    <div class="img-card">
-      <img 
-        class="cart-item__img" 
-        :src=" require('../../assets/catalog/' + cart_item_data.image) " alt=""
-      >
-    </div>
-    <div class="cart-item__info">
-      <p class="cart-item__info_title">{{cart_item_data.title}}</p>
-      <p class="cart-item__info_price">{{cart_item_data.price}}zł</p>
+  <div class="cart-container">
+    <div class="cart-item">
+      <div class="img-card">
+        <img 
+          class="cart-item__img" 
+          :src=" require('../../assets/catalog/' + cart_item_data.image) " alt=""
+        >
+      </div>
+      <div class="cart-item__info">
+        <p class="cart-item__info_title">{{cart_item_data.title}}</p>
+        <p class="cart-item__info_price">{{cart_item_data.price}}zł</p>
+      </div>
     </div>
     <div class="cart-item__quantity"> Ilość {{cart_item_data.quantity || 1}}</div>
     <button
@@ -49,6 +51,20 @@ export default {
 </script>
 
 <style>
+.cart h1 {
+  margin-bottom: 20px;
+}
+
+.cart-container {
+  width: 100%;
+  height: 340px;
+  margin-bottom: -1px;
+  border: 1px solid #bbb;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+}
+
 .cart-item__img {
   max-width: 230px;
 }
@@ -56,7 +72,7 @@ export default {
 
 .cart-item {
   width: 230px;
-  height: 350px;
+  height: 300px;
   margin: 20px;
   box-shadow: 0 0 10px rgb(0 0 0 / 30%);
 }
@@ -86,10 +102,18 @@ export default {
   color: #7a4069;
 }
 
+.cart-item__quantity {
+  margin: 10px 20px;
+  font-size: 20px;
+}
+
 .cart-item__info_delete {
   width: 190px;
   height: 45px;
-  margin-top: 10px;  
+  display: grid;
+  justify-content: center;
+  justify-self: center;
+  align-content: center;
   text-transform: uppercase;
   border: 1px solid #707070;
   cursor: pointer;
