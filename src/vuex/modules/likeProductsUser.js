@@ -6,9 +6,10 @@ export default {
     SET_LIKE: (state, product) => {
       if (state.like.length) {
         let isProductExists = false
-        state.like.map(function(item) {
+        state.like.map(function(item, index) {
           if (item.id === product.id) {
             isProductExists = true
+            state.like.splice(index, 1)
           } 
         })
         if (!isProductExists) {
