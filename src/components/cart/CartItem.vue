@@ -76,6 +76,7 @@ export default {
   margin-bottom: -1px;
   border: 1px solid #bbb;
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   grid-auto-flow: column;
   align-items: center;
 }
@@ -140,6 +141,7 @@ button.cart-item__quantity_add {
 .cart-item__info_delete {
   width: 190px;
   height: 45px;
+  margin-top: 20px;
   display: grid;
   justify-content: center;
   justify-self: center;

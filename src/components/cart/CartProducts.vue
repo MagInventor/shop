@@ -13,7 +13,7 @@
     </div>
     <div class="cart-total">
       <div class="container">
-        <p class="cart-total__name">Total:</p>
+        <p class="cart-total__name">Razem:</p>
         <p class="cart-total__price">{{cartTotalCost}}zł</p>
       </div>
     </div>
