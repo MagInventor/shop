@@ -6,7 +6,7 @@
       "price": 100,
       "id": "I1",
       "available": true,
-      "category" : "house",
+      "category" : "Domki dla zwierząt",
       "type": "bird"
     },
     {
@@ -15,7 +15,7 @@
       "price": 150,
       "id": "I2",
       "available": true,
-      "category" : "house",
+      "category" : "Domki dla zwierząt",
       "type": "bird"
     },
     {
@@ -24,7 +24,7 @@
       "price": 200,
       "id": "I3",
       "available": true,
-      "category" : "house",
+      "category" : "Domki dla zwierząt",
       "type": "bird"
     },
     {
@@ -33,7 +33,7 @@
       "price": 300,
       "id": "I4",
       "available": true,
-      "category" : "house",
+      "category" : "Domki dla zwierząt",
       "type": "bird"
     },
     {
@@ -42,7 +42,7 @@
       "price": 170,
       "id": "I5",
       "available": true,
-      "category" : "house",
+      "category" : "Domki dla zwierząt",
       "type": "dog"
     },
     {
@@ -51,7 +51,7 @@
       "price": 220,
       "id": "I6",
       "available": true,
-      "category" : "house",
+      "category" : "Domki dla zwierząt",
       "type": "dog"
     },
     {
@@ -60,7 +60,7 @@
       "price": 1600,
       "id": "I7",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type": "cat"
     },
     {
@@ -69,7 +69,7 @@
       "price": 2750,
       "id": "I8",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "cat"
     },
     {
@@ -78,7 +78,7 @@
       "price": 1200,
       "id": "I9",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "cat"
     },
     {
@@ -87,7 +87,7 @@
       "price": 1550,
       "id": "I0",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "cat"
     },
     {
@@ -96,7 +96,7 @@
       "price": 2300,
       "id": "I11",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "cat"
     },
     {
@@ -105,7 +105,7 @@
       "price": 1400,
       "id": "I12",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "cat"
     },
     {
@@ -114,7 +114,7 @@
       "price": 1600,
       "id": "I13",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type": "dog"
     },
     {
@@ -123,7 +123,7 @@
       "price": 2450,
       "id": "I14",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "dog"
     },
     {
@@ -132,7 +132,7 @@
       "price": 1300,
       "id": "I15",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "dog"
     },
     {
@@ -141,7 +141,7 @@
       "price": 1750,
       "id": "I16",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "dog"
     },
     {
@@ -150,7 +150,7 @@
       "price": 3000,
       "id": "I17",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "dog"
     },
     {
@@ -159,7 +159,7 @@
       "price": 1950,
       "id": "I18",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "dog"
     },
     {
@@ -168,7 +168,7 @@
       "price": 900,
       "id": "I19",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type": "ptak"
     },
     {
@@ -177,7 +177,7 @@
       "price": 500,
       "id": "I20",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "ptak"
     },
     {
@@ -186,7 +186,7 @@
       "price": 700,
       "id": "I21",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "ptak"
     },
     {
@@ -195,7 +195,7 @@
       "price": 1200,
       "id": "I22",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "ptak"
     },
     {
@@ -204,7 +204,7 @@
       "price": 2450,
       "id": "I23",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "ptak"
     },
     {
@@ -213,7 +213,7 @@
       "price": 1750,
       "id": "I24",
       "available": true,
-      "category" : "animal",
+      "category" : "Zwierząta",
       "type" : "ptak"
     }
   ]
