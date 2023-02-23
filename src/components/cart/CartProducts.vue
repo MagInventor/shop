@@ -9,6 +9,12 @@
         @deleteFromCart="deleteFromCart(index)"
       />
     </div>
+    <div class="cart-total">
+      <div class="container">
+        <p class="cart-total__name">Total:</p>
+        <p class="cart-total__price">{{cartTotalCost}}</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -35,7 +41,24 @@ export default {
   computed: {
     ...mapGetters([
       'CART'
-    ])
+    ]),
+    cartTotalCost() {
+      if (!this.cart_data.length) 
+        return 0
+
+      if (this.cart_data.length === 0) 
+        return this.cart_data.price
+
+      const result = []
+      
+      for (let item of this.cart_data) {
+        item.quantity 
+          ? result.push(item.price * item.quantity) 
+          : result.push(item.price)    
+      }
+
+      return result.reduce((sum, el) => sum + el)
+    }
   },
   methods: {
     ...mapActions([
@@ -49,5 +72,24 @@ export default {
 </script>
 
 <style>
-  
+.cart-total .container {
+  height: 100px;
+  margin: 20px auto;
+  background: #513252;
+  border: 1px solid #513252;
+  color: #fff;
+  display: grid;
+  justify-self: center;
+  align-content: center;
+}
+
+.cart-total__name {
+  padding-top: 10px;
+}
+
+.cart-total__price {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 2;
+}
 </style>
