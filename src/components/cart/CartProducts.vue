@@ -43,18 +43,12 @@ export default {
       'CART'
     ]),
     cartTotalCost() {
-      if (!this.cart_data.length) 
-        return 0
-
-      if (this.cart_data.length === 0) 
-        return this.cart_data.price
+      if (!this.cart_data.length) return 0
 
       const result = []
       
       for (let item of this.cart_data) {
-        item.quantity 
-          ? result.push(item.price * item.quantity) 
-          : result.push(item.price)    
+        result.push(item.price * (item.quantity || 1))
       }
 
       return result.reduce((sum, el) => sum + el)
