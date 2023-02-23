@@ -81,7 +81,7 @@
   position: absolute;
   top: 30px;
   left: 0;
-  width: 91%;
+  width: 189px;
   padding: 8px;
 }
 

@@ -5,6 +5,7 @@
         :selected="selected"
         :options="categories"
         @select="sortByCategories"
+        :isExpanded="IS_DESKTOP"
       />
       <div class="list-default">
         <product-card
@@ -43,7 +44,9 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'PRODUCTS'
+      'PRODUCTS',
+      'IS_MOBILE',
+      'IS_DESKTOP'
     ]),
     filteredProducts() {
       if (this.sortedProducts.length) {
@@ -97,7 +100,7 @@ export default {
 .product-select {
   width: 200px;
   height: 26px;
-  margin-bottom: 75px;
+  margin-bottom: 90px;
   padding: 7px 0 0 7px;
   background: #513252;
   color: #ffc18e;
