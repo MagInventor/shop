@@ -18,6 +18,12 @@
     >
       Usuń
     </button>
+    <button
+      class="like-item__info_to_cart"
+      @click="addToCart"
+    >
+      Do koszyka
+    </button>
   </div>
 </template>
 
@@ -39,6 +45,9 @@ export default {
   methods: {
     deleteFromLike() {
       this.$emit('deleteFromLike')
+    },
+    addToCart() {
+      this.$emit('addToCart')
     }
   }
 }
@@ -97,27 +106,8 @@ export default {
   color: #7a4069;
 }
 
-.like-item__quantity_info {
-  height: 30px;
-  display: grid;
-  justify-items: center;
-  align-content: center;
-}
-
-button.like-item__quantity_add {
-  width: 30px;
-  height: 30px;
-  background: #ffc1be;
-  border: transparent;
-  cursor: pointer;
-}
-
-.like-item__quantity_number {
-  margin: 0 10px;
-  font-size: 20px;
-}
-
-.like-item__info_delete {
+.like-item__info_delete,
+.like-item__info_to_cart {
   width: 190px;
   height: 45px;
   margin-top: 20px;
@@ -130,9 +120,20 @@ button.like-item__quantity_add {
   cursor: pointer;
 }
 
+.like-item__info_to_cart {
+  border: 2px solid #7a4069;
+}
+
 .like-item__info_delete:hover {
   background: #ca4e79;
   border: 1px solid #ca4e79;
+  color: #fff;
+  font-weight: bold;
+}
+
+.like-item__info_to_cart:hover {
+  background: #ffc18e;
+  border: 2px solid #ffc18e;
   color: #fff;
   font-weight: bold;
 }

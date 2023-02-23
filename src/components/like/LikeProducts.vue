@@ -7,6 +7,7 @@
         :key = "item.id"
         :like_item_data="item"
         @deleteFromLike="deleteFromLike(index)"
+        @addToCart="addToCart(item)"
       />
     </div>
   </div>
@@ -39,10 +40,14 @@ export default {
   },
   methods: {
     ...mapActions([
-      'DELETE_FROM_LIKE'
+      'DELETE_FROM_LIKE',
+      'ADD_TO_CART'
     ]),
     deleteFromLike(index) {
       this.DELETE_FROM_LIKE(index)
+    },
+    addToCart(data) {
+      this.ADD_TO_CART(data)
     }
   }
 }
