@@ -25,6 +25,13 @@ export default {
         state.cart.push(product)
       }
     },
+    INCREMENT: (state, index) => {
+      if (state.cart(index) > 1)
+        state.cart(index).quantity--
+    },
+    DeCREMENT: (state, index) => {
+      state.cart(index).quantity++
+    },
     REMOVE_FROM_CART: (state, index) => {
       state.cart.splice(index, 1)
     }
@@ -32,6 +39,12 @@ export default {
   actions: {
     ADD_TO_CART({commit}, product) {
       commit('SET_CART', product)
+    },
+    INCREMENT_CART_ITEM({commit}, index) {
+      commit('INCREMENT', index)
+    },
+    DECREMENT_CART_ITEM({commit}, index) {
+      commit('DECREMENT', index)
     },
     DELETE_FROM_CART({commit}, index) {
       commit('REMOVE_FROM_CART', index)

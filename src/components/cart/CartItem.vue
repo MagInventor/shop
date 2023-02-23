@@ -9,10 +9,17 @@
       </div>
       <div class="cart-item__info">
         <p class="cart-item__info_title">{{cart_item_data.title}}</p>
-        <p class="cart-item__info_price">{{cart_item_data.price}}zł</p>
+        <p class="cart-item__info_price">{{cart_item_data.price}} zł</p>
       </div>
     </div>
-    <div class="cart-item__quantity"> Ilość {{cart_item_data.quantity || 1}}</div>
+    <div class="cart-item__quantity">
+      <p>Ilość</p>
+      <span>
+        <span @click="decrementItem">-</span>
+        {{cart_item_data.quantity || 1}}
+        <span @click="incrementItem">+</span>
+      </span>
+    </div>
     <button
       class="cart-item__info_delete"
       @click="deleteFromCart"
@@ -38,6 +45,12 @@ export default {
   },
   computed: {},
   methods: {
+    incrementItem() {
+      this.$emit('increment')
+    },
+    decrementItem() {
+      this.$emit('decrement')
+    },
     deleteFromCart() {
       this.$emit('deleteFromCart')
     }
