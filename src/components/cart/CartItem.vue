@@ -57,11 +57,6 @@ export default {
       this.$emit('deleteFromCart')
     }
   }
-  // ,
-  // mounted() {
-  //   const cartItemData = this.cart_item_data
-  //   cartItemData.quantity = 1
-  // }
 }
 </script>
 
