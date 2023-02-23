@@ -14,11 +14,13 @@
     </div>
     <div class="cart-item__quantity">
       <p>Ilość</p>
-      <span>
-        <span @click="decrementItem">-</span>
-        {{cart_item_data.quantity || 1}}
-        <span @click="incrementItem">+</span>
-      </span>
+      <p class="cart-item__quantity_info">
+        <span>
+          <button class="cart-item__quantity_add" @click="incrementItem">-</button>
+          <span class="cart-item__quantity_number">{{cart_item_data.quantity || 1}}</span>
+          <button class="cart-item__quantity_add" @click="decrementItem">+</button>
+        </span>
+      </p>
     </div>
     <button
       class="cart-item__info_delete"
@@ -46,10 +48,10 @@ export default {
   computed: {},
   methods: {
     incrementItem() {
-      this.$emit('increment')
+      this.$emit('incrementItem')
     },
     decrementItem() {
-      this.$emit('decrement')
+      this.$emit('decrementItem')
     },
     deleteFromCart() {
       this.$emit('deleteFromCart')
@@ -115,8 +117,23 @@ export default {
   color: #7a4069;
 }
 
-.cart-item__quantity {
-  margin: 10px 20px;
+.cart-item__quantity_info {
+  height: 30px;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+}
+
+button.cart-item__quantity_add {
+  width: 30px;
+  height: 30px;
+  background: #ffc1be;
+  border: transparent;
+  cursor: pointer;
+}
+
+.cart-item__quantity_number {
+  margin: 0 10px;
   font-size: 20px;
 }
 

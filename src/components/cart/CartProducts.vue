@@ -7,8 +7,8 @@
         :key = "item.id"
         :cart_item_data="item"
         @deleteFromCart="deleteFromCart(index)"
-        @increment="increment(index)"
-        @decrement="decrement(index)"
+        @incrementItem="incrementItem(index)"
+        @decrementItem="decrementItem(index)"
       />
     </div>
     <div class="cart-total">

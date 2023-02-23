@@ -26,11 +26,14 @@ export default {
       }
     },
     INCREMENT: (state, index) => {
-      if (state.cart(index) > 1)
-        state.cart(index).quantity--
+      state.cart[index].quantity > 1
+        ? state.cart[index].quantity--
+        : state.cart[index].quantity = 0
     },
-    DeCREMENT: (state, index) => {
-      state.cart(index).quantity++
+    DECREMENT: (state, index) => {
+      state.cart[index].quantity
+        ? state.cart[index].quantity++
+        : state.cart[index].quantity = 2
     },
     REMOVE_FROM_CART: (state, index) => {
       state.cart.splice(index, 1)
