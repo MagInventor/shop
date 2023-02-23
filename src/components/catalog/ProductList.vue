@@ -56,6 +56,7 @@ export default {
 
 <style>
   .list-default {
+    margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;

@@ -39,6 +39,13 @@ export default {
   methods: {
     addToLike() {
       this.$emit('addToLike', this.product_data)
+
+      const CARD_TRANSPARENT = document.querySelectorAll('.img-card__like_transparent')
+      const CARD_CHOOSED = document.querySelectorAll('.img-card__like_choosed')
+      let itemID = this.product_data.id.substring(1) - 1
+     
+      CARD_TRANSPARENT[itemID].classList.remove('like-active')
+      CARD_CHOOSED[itemID].classList.add('like-active')
     },
     addToCart() {
       this.$emit('addToCart', this.product_data)
