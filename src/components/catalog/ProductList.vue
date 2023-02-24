@@ -1,12 +1,36 @@
 <template>
   <div class="product-list">
     <div class="container">
-      <product-select
-        :selected="selected"
-        :options="categories"
-        @select="sortByCategories"
-        :isExpanded="IS_DESKTOP"
-      />
+      <div class="product-setup">
+        <product-select
+          :selected="selected"
+          :options="categories"
+          @select="sortByCategories"
+          :isExpanded="IS_DESKTOP"
+        />
+        <div class="range-slider">
+          <input
+              type="range"
+              min="0"
+              max="1000"
+              step="50"
+              v-model.number="minPrice"
+              @change="setRangeSlider"
+          >
+          <input
+              type="range"
+              min="0"
+              max="10000"
+              step="50"
+              v-model.number="maxPrice"
+              @change="setRangeSlider"
+          >
+        </div>
+        <div class="range-values">
+          <p>Min: {{minPrice}}</p>
+          <p>Max: {{maxPrice}}</p>
+        </div>
+      </div>
       <div class="list-default">
         <product-card
           v-for="(product) in filteredProducts"
@@ -39,7 +63,9 @@ export default {
         {name: 'Zwierząta', value: 'animal'},
       ],
       selected: 'Wszystkie',
-      sortedProducts: []
+      sortedProducts: [],
+      minPrice: 0,
+      maxPrice: 10000,
     }
   },
   computed: {
@@ -62,14 +88,26 @@ export default {
       'ADD_TO_LIKE',
       'ADD_TO_CART',
     ]),
+    setRangeSlider() {
+      if (this.minPrice > this.maxPrice) {
+        let tmp = this.maxPrice;
+        this.maxPrice = this.minPrice;
+        this.minPrice = tmp;
+      }
+      this.sortByCategories()
+    },
     sortByCategories(category) {
-      this.sortedProducts = []
-      let vm = this
-      this.PRODUCTS.filter(function(item) {
-        if (item.category === category.name) {
-          vm.sortedProducts.push(item)
-        }
+      let vm = this;
+      this.sortedProducts = [...this.PRODUCTS]
+      this.sortedProducts = this.sortedProducts.filter(function (item) {
+        return item.price >= vm.minPrice && item.price <= vm.maxPrice
       })
+      if (category) {
+        this.sortedProducts = this.sortedProducts.filter(function (e) {
+          vm.selected === category.name;
+          return e.category === category.name
+        })
+      }
     },
     addToLike(data) {
       this.ADD_TO_LIKE(data)
@@ -83,6 +121,7 @@ export default {
     .then((response) => {
       if (response.data) {
         console.log('Data arrived')
+        this.sortByCategories()
       }
     })
   }
@@ -90,6 +129,16 @@ export default {
 </script>
 
 <style>
+.product-setup {
+  background: aliceblue;
+  margin-top: 15px;
+  padding: 20px 50px 30px 50px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 305px auto 229px;
+  align-items: center;
+}
+
 .list-default {
   margin-top: 10px;
   display: grid;
@@ -112,5 +161,36 @@ export default {
 
 .product-select__options p {
   padding: 5px 0;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.range-slider {
+  width: 200px;
+  margin: auto 16px;
+  text-align: center;
+  position: relative;
+}
+
+.range-slider svg, .range-slider input[type=range] {
+  width: 230px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  z-index: 2;
+  position: relative;
+  top: 2px;
+  margin-top: -7px;
+}
+
+.range-values {
+  float: left;
 }
 </style>
