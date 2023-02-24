@@ -35,7 +35,6 @@ export default {
       }
     }
   },
-  computed: {},
   methods: {
     addToLike() {
       this.$emit('addToLike', this.product_data)
