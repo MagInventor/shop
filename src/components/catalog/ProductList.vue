@@ -10,20 +10,20 @@
         />
         <div class="range-slider">
           <input
-              type="range"
-              min="0"
-              max="1000"
-              step="50"
-              v-model.number="minPrice"
-              @change="setRangeSlider"
+            type="range"
+            min="0"
+            max="1000"
+            step="50"
+            v-model.number="minPrice"
+            @change="setRangeSlider"
           >
           <input
-              type="range"
-              min="0"
-              max="10000"
-              step="50"
-              v-model.number="maxPrice"
-              @change="setRangeSlider"
+            type="range"
+            min="0"
+            max="10000"
+            step="50"
+            v-model.number="maxPrice"
+            @change="setRangeSlider"
           >
         </div>
         <div class="range-values">
@@ -66,6 +66,7 @@ export default {
       sortedProducts: [],
       minPrice: 0,
       maxPrice: 10000,
+      quote: 1
     }
   },
   computed: {
@@ -75,8 +76,12 @@ export default {
       'IS_DESKTOP'
     ]),
     filteredProducts() {
+      this.PRODUCTS.map(item => {
+        item.price = Math.round(item.price * this.quote * 100) / 100
+      })
+
       if (this.sortedProducts.length) {
-        return this.sortedProducts
+        return this.sortedProducts.filter(item => Math.round(item.price * 2))
       } else {
         return this.PRODUCTS
       }
@@ -97,7 +102,8 @@ export default {
       this.sortByCategories()
     },
     sortByCategories(category) {
-      let vm = this;
+      let vm = this
+
       this.sortedProducts = [...this.PRODUCTS]
       this.sortedProducts = this.sortedProducts.filter(function (item) {
         return item.price >= vm.minPrice && item.price <= vm.maxPrice
@@ -110,6 +116,8 @@ export default {
       }
     },
     addToLike(data) {
+      // console.log(this.LIKE)
+      // console.log(data.id)
       this.ADD_TO_LIKE(data)
     },
     addToCart(data) {
@@ -118,7 +126,7 @@ export default {
   },
   mounted() {
     this.GET_PRODUCTS_FROM_API()
-    .then((response) => {
+     .then((response) => {
       if (response.data) {
         console.log('Data arrived')
         this.sortByCategories()

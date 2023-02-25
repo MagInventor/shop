@@ -6,8 +6,7 @@
         class="img-card__like"
         @click="addToLike"
       >
-        <img :src=" require('../../assets/icons/like.png')" class="img-card__like_transparent like-active">
-        <img :src=" require('../../assets/icons/likered.png')" class="img-card__like_choosed">
+        <img :src=" require(`../../assets/icons/like${likeRed}.png`)">
       </span>
     </div>
     <div class="product-card__info">
@@ -25,26 +24,32 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
   name: 'ProductCard',
   props: {
     product_data: {
       type: Object,
       default() {
-        return {}
+        return {
+          likeActive: '',
+          likered: ' '
+        }
       }
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'LIKE'
+    ]),
+    likeRed() {
+      return (this.LIKE.length && this.LIKE.findIndex(item => item.id === this.product_data.id) !== -1) ? 'red' : ''
     }
   },
   methods: {
     addToLike() {
       this.$emit('addToLike', this.product_data)
-
-      const CARD_TRANSPARENT = document.querySelectorAll('.img-card__like_transparent')
-      const CARD_CHOOSED = document.querySelectorAll('.img-card__like_choosed')
-      let itemID = this.product_data.id.substring(1) - 1
-     
-      CARD_TRANSPARENT[itemID].classList.remove('like-active')
-      CARD_CHOOSED[itemID].classList.add('like-active')
     },
     addToCart() {
       this.$emit('addToCart', this.product_data)
