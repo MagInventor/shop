@@ -92,7 +92,8 @@ export default {
       'GET_PRODUCTS_FROM_API',
       'ADD_TO_LIKE',
       'ADD_TO_CART',
-      'CHOOSE_CURRENCY'
+      'CHOOSE_CURRENCY',
+      'SHOW_SEARCH_TEXT'
     ]),
     setRangeSlider() {
       if (this.minPrice > this.maxPrice) {
@@ -104,6 +105,7 @@ export default {
     },
     sortByCategories(category) {
       let vm = this
+      this.showSearchProducts()
 
       this.sortedProducts = [...this.PRODUCTS]
       this.sortedProducts = this.sortedProducts.filter(function (item) {
@@ -130,6 +132,9 @@ export default {
         item.price = Math.round(item.price / this.oldQuote * this.QUOTE * 100) / 100
       })
       this.oldQuote = this.QUOTE
+    },
+    showSearchProducts() {
+      this.SHOW_SEARCH_TEXT()
     }
   },
   mounted() {

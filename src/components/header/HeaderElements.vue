@@ -8,10 +8,20 @@
         </router-link>
       </div>
       <div class="head-elements">
-        <form class="head-elements__search">
-          <input id="search" type="search" name="search" placeholder="Czego shukasz?" autocomplete="off">
-           <button class="search">
-             <img alt="Search" class="head-elements__search_img" src="../../assets/icons/search.png">
+        <form class="head-elements__search" onsubmit="return false;" >
+          <input 
+            id="search"
+            type="search"
+            name="search"
+            placeholder="Czego shukasz?" 
+            autocomplete="off"
+            v-model="newItem"
+          >
+           <button 
+            class="search"
+            @click="beginSearch"
+            >
+            <img alt="Search" class="head-elements__search_img" src="../../assets/icons/search.png">
            </button>
         </form>
         <router-link to="/like" class="head-elements__like">
@@ -37,14 +47,22 @@ export default {
   name: 'HeaderElements',
   components: {},
   props: {},
-  data() {},
+  data() {
+    return {
+      newItem: ''
+    }
+  },
   computed: {
     ...mapGetters([
       'LIKE',
       'CART'
     ])
   },
-  methods: {}
+  methods: {
+    beginSearch() {
+      this.$emit('beginSearch', this.newItem)
+    }
+  }
 }
 </script>
 

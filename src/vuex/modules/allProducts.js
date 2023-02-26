@@ -2,11 +2,13 @@ import axios from 'axios'
 
 export default {
   state: {
-    products: []
+    products: [],
+    allProducts: []
   },
   mutations: {
     SET_PRODUCTS_TO_STATE:(state, products) => {
       state.products = products
+      state.allProducts = products
       state.products.filter(function(item) {
         item.currency = 'zł'
       })
@@ -17,10 +19,23 @@ export default {
         : (currency === 'PLNEUR') 
           ? 'EUR'
           : 'zł'
-      console.log(currentCurrency)
       state.products.map(function(item) {
         item.currency = currentCurrency
       })
+    },
+    SET_SEARCH_PRODUCTS:(state, text) => {
+      state.products = [...state.allProducts]
+      let searchProducts = []
+      
+      state.products.map(item => {
+        item.title.split(' ').filter(el  => {
+          if (el.toLowerCase() === text.toLowerCase()) {
+            searchProducts.push(item)
+          }
+        })
+      })
+      state.products = searchProducts
+      return searchProducts;
     }
   },
   actions: {
@@ -39,6 +54,9 @@ export default {
     },
     ADD_PRODUCTS_CURRENCY({commit}, currency) {
       commit('SET_PRODUCTS_CURRENCY', currency)
+    },
+    SHOW_SEARCH_TEXT({commit}, text) {
+      commit('SET_SEARCH_PRODUCTS', text)
     }
   },
   getters: {

@@ -1,6 +1,8 @@
 <template>
   <header>
-    <header-elements/>
+    <header-elements
+      @beginSearch="beginSearch"
+    />
     <nav-menu/>
     <currency-exchange
       :selected="selected"
@@ -37,7 +39,8 @@ export default {
     ...mapActions([
       'GET_CURRENCY_FROM_API',
       'CHOOSE_CURRENCY',
-      'ADD_PRODUCTS_CURRENCY'
+      'ADD_PRODUCTS_CURRENCY',
+      'SHOW_SEARCH_TEXT'
     ]),
     getExchangeRate(currency) {
       this.CHOOSE_CURRENCY(currency)
@@ -51,6 +54,9 @@ export default {
 
       this.selected = category.name
       return this.selected
+    },
+    beginSearch(text) {
+      this.SHOW_SEARCH_TEXT(text)
     }
   },
   mounted() {
