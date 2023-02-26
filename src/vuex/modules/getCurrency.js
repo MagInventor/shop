@@ -1,5 +1,5 @@
-import axios from 'axios'
-// import apiKeys from '../../constants/apiKeys.constant'
+// import axios from 'axios'
+import apiKeys from '../../constants/apiKeys.constant'
 
 export default {
   state: {
@@ -41,9 +41,9 @@ export default {
       // })
       // .catch(error => console.log('error', error));
 
-    return axios('http://localhost:3000/currency', {
-      method: "GET"
-    })
+      return axios('http://localhost:3000/currency', {
+        method: "GET"
+      })
       .then(result => {
         // console.log(result.data[0])
         commit('SET_CURRENCY_TO_STATE', result.data[0])
