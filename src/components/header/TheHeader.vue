@@ -37,12 +37,17 @@ export default {
     ...mapActions([
       'GET_CURRENCY_FROM_API',
       'CHOOSE_CURRENCY',
+      'ADD_PRODUCTS_CURRENCY'
     ]),
     getExchangeRate(currency) {
       this.CHOOSE_CURRENCY(currency)
     },
+    getCurrencyValue(currency) {
+      this.ADD_PRODUCTS_CURRENCY(currency)
+    },
     chooseCategory(category) {
       this.getExchangeRate(category.value || 'PLN')
+      this.getCurrencyValue(category.value || 'PLN')
 
       this.selected = category.name
       return this.selected

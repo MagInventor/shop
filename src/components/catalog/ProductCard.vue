@@ -11,7 +11,7 @@
     </div>
     <div class="product-card__info">
       <p class="product-card__info_title">{{ product_data.title }}</p>
-      <p class="product-card__info_price">{{product_data.price}}{{currency="zł"}}</p>
+      <p class="product-card__info_price">{{product_data.price}}{{product_data.currency}}</p>
       <button 
         type="button"
         class="product-card__info_cart" 
@@ -31,12 +31,10 @@ export default {
   props: {
     product_data: {
       type: Object,
-      currency: String,
       default() {
         return {
           likeActive: '',
-          likered: ' ',
-          currency: 'zł'
+          likered: ' '
         }
       }
     }

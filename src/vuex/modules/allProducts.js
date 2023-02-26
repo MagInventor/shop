@@ -7,6 +7,20 @@ export default {
   mutations: {
     SET_PRODUCTS_TO_STATE:(state, products) => {
       state.products = products
+      state.products.filter(function(item) {
+        item.currency = 'zł'
+      })
+    },
+    SET_PRODUCTS_CURRENCY:(state, currency) => {
+      let currentCurrency = (currency === 'PLNUSD') 
+        ? '$'
+        : (currency === 'PLNEUR') 
+          ? 'EUR'
+          : 'zł'
+      console.log(currentCurrency)
+      state.products.map(function(item) {
+        item.currency = currentCurrency
+      })
     }
   },
   actions: {
@@ -22,6 +36,9 @@ export default {
           console.log(error)
           return error
         })
+    },
+    ADD_PRODUCTS_CURRENCY({commit}, currency) {
+      commit('SET_PRODUCTS_CURRENCY', currency)
     }
   },
   getters: {

@@ -9,7 +9,7 @@
       </div>
       <div class="cart-item__info">
         <p class="cart-item__info_title">{{cart_item_data.title}}</p>
-        <p class="cart-item__info_price">{{cart_item_data.price}} zł</p>
+        <p class="cart-item__info_price">{{cart_item_data.price}}{{cart_item_data.currency}}</p>
       </div>
     </div>
     <div class="cart-item__quantity">

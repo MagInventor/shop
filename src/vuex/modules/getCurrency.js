@@ -11,8 +11,6 @@ export default {
       state.currency = currency
     },
     SET_CURRENT_CURRENCY: (state, currency) => {
-      console.log('currency',state.currency)
-      console.log('currency',state.currency.quotes)
       for (let quote in state.currency.quotes) {
         if (quote === currency) {
           state.quoteCurrency = state.currency.quotes[quote]
@@ -47,7 +45,7 @@ export default {
       method: "GET"
     })
       .then(result => {
-        console.log(result.data[0])
+        // console.log(result.data[0])
         commit('SET_CURRENCY_TO_STATE', result.data[0])
       })
       .catch(error => console.log('error', error))

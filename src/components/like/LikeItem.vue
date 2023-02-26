@@ -9,7 +9,7 @@
       </div>
       <div class="like-item__info">
         <p class="like-item__info_title">{{like_item_data.title}}</p>
-        <p class="like-item__info_price">{{like_item_data.price}} zł</p>
+        <p class="like-item__info_price">{{like_item_data.price}}{{like_item_data.currency}}</p>
       </div>
     </div>
     <button
