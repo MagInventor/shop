@@ -26,7 +26,7 @@ export default {
   mounted() {
     let vm = this
     window.addEventListener('resize', function() {
-      if (window.innerWidth > 767) {
+      if (window.innerWidth > 800) {
         vm.SET_DESKTOP()
         console.log('this is desctop')
       } else {
@@ -63,5 +63,23 @@ a {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+@media (max-width: 979px) {
+  .container {
+    width: 768px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 480px;
+  }
+}
+
+@media (max-width: 479px) {
+  .container {
+    width: 320px;
+  }
 }
 </style>

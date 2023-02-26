@@ -66,7 +66,6 @@ export default {
 .product-card {
   width: 230px;
   height: 313px;
-  margin: 20px;
   box-shadow: 0 0 10px rgb(0 0 0 / 30%);
   display: grid;
   grid-template-rows: auto 180px;

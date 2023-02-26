@@ -88,4 +88,16 @@ export default {
 .product-select__options p:hover {
   background: #e7e7e7;
 }
+
+@media (max-width: 979px) {
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 479px) {
+  
+}
 </style>

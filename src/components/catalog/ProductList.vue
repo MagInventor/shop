@@ -12,7 +12,7 @@
           <input
             type="range"
             min="0"
-            max="1000"
+            max="10000"
             step="50"
             v-model.number="minPrice"
             @change="setRangeSlider"
@@ -148,7 +148,7 @@ export default {
 .product-setup {
   background: aliceblue;
   margin-top: 15px;
-  padding: 20px 50px 30px 50px;
+  padding: 20px 21px 30px 16px;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 305px auto 229px;
@@ -156,9 +156,11 @@ export default {
 }
 
 .list-default {
-  margin-top: 10px;
+  margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 230px);
+  grid-gap: 30px 20px;
+  justify-content: center;
   justify-items: center;
 }
 
@@ -208,5 +210,62 @@ input[type=range]::-webkit-slider-thumb {
 
 .range-values {
   float: left;
+}
+
+
+@media (max-width: 979px) {
+ .list-default {
+    grid-template-columns: repeat(3, 230px);
+  }
+
+  .product-setup {
+    padding: 20px 21px 30px 16px;
+    grid-template-columns: repeat(3, 230px);
+  }
+    .list-default {
+    grid-template-columns: repeat(2, 230px);
+  }
+  
+  .container .product-setup {
+    margin-top: 30px;
+    display: grid;
+    justify-content: center;
+  }
+
+  .product-setup {
+    background: transparent;
+    height: 120px;
+    padding: 46px 0 0 0;
+    grid-template-rows: repeat(3, 30px);
+  }
+
+  .range-slider {
+    margin: auto 0px;
+  }
+
+  .product-select__options {
+    margin-left: 206px;
+    margin-top: -30px;
+    color: #513252;
+  }
+
+  .range-values {
+    margin-top: 50px;
+    text-align: left;
+  }
+
+  .range-slider input[type=range] {
+    width: 205px;
+  }
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 479px) {
+  .list-default {
+    grid-template-columns: repeat(1, 230px);
+  }
 }
 </style>

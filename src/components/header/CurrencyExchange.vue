@@ -101,4 +101,19 @@ export default {
   color: #fff;
 }
 
+@media (max-width: 979px) {
+
+}
+
+@media (max-width: 767px) {
+  .currency-current {
+    position: absolute;
+    top: -32px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 479px) {
+
+}
 </style>
