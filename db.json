@@ -216,5 +216,16 @@
       "category" : "Zwierząta",
       "type" : "ptak"
     }
+  ],
+  "currency": [
+    {
+      "success": true,
+      "timestamp": 1677263103,
+      "source": "PLN",
+      "quotes": {
+        "PLNUSD": 0.223554,
+        "PLNEUR": 0.211889
+      }
+    }
   ]
 }

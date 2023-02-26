@@ -11,7 +11,7 @@
     </div>
     <div class="product-card__info">
       <p class="product-card__info_title">{{ product_data.title }}</p>
-      <p class="product-card__info_price">{{ product_data.price }}zł</p>
+      <p class="product-card__info_price">{{product_data.price}}{{currency="zł"}}</p>
       <button 
         type="button"
         class="product-card__info_cart" 
@@ -31,10 +31,12 @@ export default {
   props: {
     product_data: {
       type: Object,
+      currency: String,
       default() {
         return {
           likeActive: '',
-          likered: ' '
+          likered: ' ',
+          currency: 'zł'
         }
       }
     }
@@ -44,7 +46,8 @@ export default {
       'LIKE'
     ]),
     likeRed() {
-      return (this.LIKE.length && this.LIKE.findIndex(item => item.id === this.product_data.id) !== -1) ? 'red' : ''
+      return (this.LIKE.length && this.LIKE.findIndex(item => 
+        item.id === this.product_data.id) !== -1) ? 'red' : ''
     }
   },
   methods: {
@@ -53,6 +56,9 @@ export default {
     },
     addToCart() {
       this.$emit('addToCart', this.product_data)
+    },
+    addCurrency() {
+      return this.currency = 'zł'
     }
   }
 }

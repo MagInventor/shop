@@ -1,17 +1,17 @@
 <template>
   <div class='product-select'>
     <p
-        class="poduct-select__title"
-        @click="areOptionsVisible = !areOptionsVisible"
+      class="poduct-select__title"
+      @click="areOptionsVisible = !areOptionsVisible"
     >{{selected}}</p>
     <div
-        class="product-select__options"
-        v-if="areOptionsVisible || isExpanded"
+      class="product-select__options"
+      v-if="areOptionsVisible || isExpanded"
     >
       <p
-          v-for="option in options"
-          :key="option.value"
-          @click="selectOption(option)"
+        v-for="option in options"
+        :key="option.value"
+        @click="selectOption(option)"
       >
         {{option.name}}
       </p>
@@ -20,42 +20,42 @@
 </template>
 
 <script>
-  export default {
-    name: "ProductSelect",
-    props: {
-      options: {
-        type: Array,
-        default() {
-          return []
-        }
-      },
-      selected: {
-        type: String,
-        default: ''
-      },
-      isExpanded: {
-        type: Boolean,
-        default: false
+export default {
+  name: "ProductSelect",
+  props: {
+    options: {
+      type: Array,
+      default() {
+        return []
       }
     },
-    data() {
-      return {
-        areOptionsVisible: false
-      }
+    selected: {
+      type: String,
+      default: ''
     },
-    methods: {
-      selectOption(option) {
-        this.$emit('select', option)
-        this.areOptionsVisible = false;
-      },
-      hideSelect() {
-        this.areOptionsVisible = false;
-      }
-    },
-    mounted() {
-      document.addEventListener('click', this.hideSelect.bind(this), true)
+    isExpanded: {
+      type: Boolean,
+      default: false
     }
+  },
+  data() {
+    return {
+      areOptionsVisible: false
+    }
+  },
+  methods: {
+    selectOption(option) {
+      this.$emit('select', option)
+      this.areOptionsVisible = false;
+    },
+    hideSelect() {
+      this.areOptionsVisible = false;
+    }
+  },
+  mounted() {
+    document.addEventListener('click', this.hideSelect.bind(this), true)
   }
+}
 </script>
 
 <style>

@@ -66,22 +66,22 @@ export default {
       sortedProducts: [],
       minPrice: 0,
       maxPrice: 10000,
-      quote: 1
+      quote: 1,
+      oldQuote: 1
     }
   },
   computed: {
     ...mapGetters([
       'PRODUCTS',
       'IS_MOBILE',
-      'IS_DESKTOP'
+      'IS_DESKTOP',
+      'QUOTE'
     ]),
     filteredProducts() {
-      this.PRODUCTS.map(item => {
-        item.price = Math.round(item.price * this.quote * 100) / 100
-      })
+      this.changePrice()
 
       if (this.sortedProducts.length) {
-        return this.sortedProducts.filter(item => Math.round(item.price * 2))
+        return this.sortedProducts
       } else {
         return this.PRODUCTS
       }
@@ -92,6 +92,7 @@ export default {
       'GET_PRODUCTS_FROM_API',
       'ADD_TO_LIKE',
       'ADD_TO_CART',
+      'CHOOSE_CURRENCY'
     ]),
     setRangeSlider() {
       if (this.minPrice > this.maxPrice) {
@@ -116,12 +117,19 @@ export default {
       }
     },
     addToLike(data) {
-      // console.log(this.LIKE)
-      // console.log(data.id)
       this.ADD_TO_LIKE(data)
     },
     addToCart(data) {
       this.ADD_TO_CART(data)
+    },
+    changeCurrency() {
+      return (this.CHOOSE_CURRENCY / 1)  ? this.CHOOSE_CURRENCY : 1
+    },
+    changePrice() {
+      this.PRODUCTS.map(item => {
+        item.price = Math.round(item.price / this.oldQuote * this.QUOTE * 100) / 100
+      })
+      this.oldQuote = this.QUOTE
     }
   },
   mounted() {
