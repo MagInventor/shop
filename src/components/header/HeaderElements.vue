@@ -16,9 +16,11 @@
         </form>
         <router-link to="/like" class="head-elements__like">
           <img alt="Like" class="head-elements__like_img" src="../../assets/icons/like.png">
+          <p class="head-elements__like_quantity show-quantity">{{this.LIKE.length}}</p>
         </router-link>
         <router-link to="/cart" class="head-elements__cart">
           <img alt="Cart" class="head-elements__cart_img" src="../../assets/icons/cart.png">
+          <p class="head-elements__cart_quantity show-quantity">{{this.CART.length}}</p>
         </router-link>
         <router-link to="/user" class="head-elements__user">
           <img alt="User" class="head-elements__user_img" src="../../assets/icons/user.png">
@@ -29,12 +31,20 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
   
 export default {
   name: 'HeaderElements',
-  components: {
-
-  }
+  components: {},
+  props: {},
+  data() {},
+  computed: {
+    ...mapGetters([
+      'LIKE',
+      'CART'
+    ])
+  },
+  methods: {}
 }
 </script>
 
@@ -107,6 +117,7 @@ input[type=search] {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: relative;
 }
 
 .head-elements__like:hover,
@@ -121,5 +132,25 @@ background: #ffc18e;
 .head-elements__user_img {
   width: 20px;
   height: 20px;
+}
+
+.head-elements__like_quantity,
+.head-elements__cart_quantity {
+  width: 18px;
+  height: 18px;
+  background: #ffc18e;
+  color: #000;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.7;
+  position: absolute;
+  top: 7px;
+  right: 4px;
+  display: none;
+}
+
+.show-quantity {
+  display: block;
 }
 </style>
