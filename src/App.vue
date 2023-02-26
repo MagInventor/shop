@@ -1,7 +1,5 @@
 <template>
-  <keep-alive>
-    <router-view/>
-  </keep-alive>
+  <router-view/>
 </template>
 
 <script>
@@ -10,6 +8,9 @@ import {mapActions, mapGetters} from 'vuex'
 export default {
   name: 'app',
   components: {},
+  data() {
+    return {}
+  },
   computed: {
     ...mapGetters([
       'IS_MOBILE',

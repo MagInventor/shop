@@ -1,18 +1,18 @@
 <template>
   <div class="home">
     <the-header/>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <home-page msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
 import TheHeader from '@/components/header/TheHeader'
-import HelloWorld from '@/components/HelloWorld.vue'
+import HomePage from '@/components/main/HomePage.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    TheHeader, HelloWorld
+    TheHeader, HomePage
   }
 }
 </script>
